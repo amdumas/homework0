@@ -1,0 +1,42 @@
+---
+title: "Homework 0"
+author: "Anna Dumas"
+format: html
+editor: visual
+execute:
+  echo: false
+---
+
+# Part 1
+
+The quadratic formula is used to find roots of a quadratic equation.For any given combination of a ,b, c, there will be either two, one, or no solutions. 
+The equation is as follow: 
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+```{r}
+a <- 1
+b <- 3
+c <- 2
+
+determin <- b^2-4*a*c
+
+if (determin < 0){
+  cat("For a =", a, ", b =", b, ", c =", c, "there are no solutions.")
+} else if (determin ==0) {
+  answer1 <- (-b + sqrt(b^2 - 4*a*c))/ 2*a
+  cat("For a =", a, ", b =", b, ", c =", c, "the answer is:", answer1,".")
+} else {
+  answer1 <- (-b + sqrt(b^2 - 4*a*c))/ 2*a
+  answer2 <- (-b - sqrt(b^2 - 4*a*c))/ 2*a
+  cat("For a =", a, ", b =", b, ", c =", c, "the answers are:", answer1, "and", answer2)
+  }
+```
+
+# Part 2
+
+To verify the results, or roots, of the equation, we can graph the function and see where it intersects with the line x=0. 
+```{r}
+x <- seq(-5,5, 0.1)
+plot(x, a*x^2 + b*x +c, type = "l", ylab="f(x)")
+abline(h=0, lty=2, col="red")
+```
